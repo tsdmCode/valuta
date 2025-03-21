@@ -29,7 +29,7 @@ const pound = (dkk, myCurrency) => {
   const res = dkk / poundExchange;
   result.innerHTML = `Du må få ${res.toFixed(2)} ${myCurrency}s for dine kroner`;
 };
-
+// TODO: refactor alt det her så det bare klares i switch statement istedet
 function exchange() {
   const dkk = parseFloat(kroner.value);
   let myCurrency = valutaPick.options[valutaPick.selectedIndex].innerText;

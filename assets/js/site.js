@@ -6,7 +6,6 @@ const result = document.getElementById('result');
 const euroExchange = 7.46;
 const dollarExchange = 6.88;
 const poundExchange = 8.9;
-const myCurrency = valutaPick.options[valutaPick.selectedIndex].innerText; //svarer til hvad der er valgt i select elementet
 
 //håndterer selve konverteringen og opdatering af resultatet
 const euro = (dkk, myCurrency) => {
@@ -27,6 +26,7 @@ const amount = (res, myCurrency) => {
 // TODO: refactor alt det her så det bare klares i switch statement istedet
 function exchange() {
   const dkk = parseFloat(kroner.value); //gør at jeg OGSÅ kan tage decimaltal
+  const myCurrency = valutaPick.options[valutaPick.selectedIndex].innerText; //svarer til hvad der er valgt i select elementet
   if (dkk > 0) {
     switch (myCurrency) {
       case 'euro':

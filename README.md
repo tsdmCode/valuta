@@ -8,3 +8,4 @@
   Design er frit.
 
   
+https://tsdmcode.github.io/valuta/

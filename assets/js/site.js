@@ -1,12 +1,4 @@
-/*  gode ideer og tips:
-
-hvis du vil begrænse antallet af decimaler på dit resultat, så brug methoden toFixed(antal decimaler)  eks.  result.toFixed(2) giver et resultat med 2 decimaler
-
-hvis du vil have navnet på din valuta med fra options i dit select tag, så undersøg denne linje...
- let myCurrency = mySelectElement.options[mySelectElement.selectedIndex].innerText
- prøv evt. at consol logge mySelectElement.options, hvor mySelectElement er det select element du har fundet i din DOM med getElementById()
-
- */
+//variabler
 const valutaPick = document.getElementById('valuta');
 const kroner = document.getElementById('dkk');
 const calcBtn = document.getElementById('calcButton');
@@ -14,34 +6,36 @@ const result = document.getElementById('result');
 const euroExchange = 7.46;
 const dollarExchange = 6.88;
 const poundExchange = 8.9;
+const myCurrency = valutaPick.options[valutaPick.selectedIndex].innerText; //svarer til hvad der er valgt i select elementet
 
-console.log(valutaPick);
-console.log(valutaPick.options[2].innerText);
+//håndterer selve konverteringen og opdatering af resultatet
 const euro = (dkk, myCurrency) => {
   const res = dkk / euroExchange;
-  result.innerHTML = `Du må få ${res.toFixed(2)} ${myCurrency}s for dine kroner`;
+  amount(res, myCurrency);
 };
 const dollar = (dkk, myCurrency) => {
   const res = dkk / dollarExchange;
-  result.innerHTML = `Du må få ${res.toFixed(2)} ${myCurrency}s for dine kroner`;
+  amount(res, myCurrency);
 };
 const pound = (dkk, myCurrency) => {
   const res = dkk / poundExchange;
+  amount(res, myCurrency);
+};
+const amount = (res, myCurrency) => {
   result.innerHTML = `Du må få ${res.toFixed(2)} ${myCurrency}s for dine kroner`;
 };
 // TODO: refactor alt det her så det bare klares i switch statement istedet
 function exchange() {
-  const dkk = parseFloat(kroner.value);
-  let myCurrency = valutaPick.options[valutaPick.selectedIndex].innerText;
+  const dkk = parseFloat(kroner.value); //gør at jeg OGSÅ kan tage decimaltal
   if (dkk > 0) {
     switch (myCurrency) {
       case 'euro':
         euro(dkk, myCurrency);
         break;
-      case 'dollars':
+      case 'dollar':
         dollar(dkk, myCurrency);
         break;
-      case 'pounds':
+      case 'pound':
         pound(dkk, myCurrency);
         break;
       default:

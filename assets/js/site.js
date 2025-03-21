@@ -57,6 +57,7 @@ calcBtn.addEventListener('click', (e) => {
   exchange();
 });
 
+//Ikke kigge på det her lort som jeg har slettet
 // const myValuta = valutaPick.options[valutaPick.selectedIndex].innerText;
 // const dkk =  kroner.value;
 // if (dkk > 0) {
